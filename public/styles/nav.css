@@ -8,3 +8,9 @@ nav {
 span {
   font-family: "Bungee";
 }
+h4 {
+  text-align: right;
+}
+.fas {
+  float: right;
+}
