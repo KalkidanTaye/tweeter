@@ -1,0 +1,16 @@
+header {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 400px;
+  width: 100%;
+  background-color: #ed9909;
+  background-image: url(../images/clean-gray-paper.png);
+}
+.avatar {
+  align-self: center;
+}
+.name {
+  align-self: center;
+}
