@@ -7,9 +7,11 @@ header {
   width: 100%;
   background-color: #ed9909;
   background-image: url(../images/clean-gray-paper.png);
+  margin-top: 120px;
 }
 .avatar {
   align-self: center;
+  padding-top: 20px;
 }
 .name {
   align-self: center;
