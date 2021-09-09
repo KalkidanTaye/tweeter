@@ -2,7 +2,7 @@ form {
   display: flex;
   flex-direction: column;
 }
-.tweet-text {
+.new-tweet-text {
   padding-top: 1.5em;
 }
 
