@@ -5,8 +5,15 @@
  */
 const createTweetElement = function (data) {
   console.log(data);
-  const item = `<div class="item"> <img src = "${data.user.avatars}">`;
-  return item;
+  const date = data.created_at;
+  const item = ` <img class= "avatar" src = "${data.user.avatars}">
+                    <label class="tweeter-name">${data.user.name}</label>
+                    <label class="tweeter-username">${data.user.handle}</label>`;
+  console.log(timeago.format(date));
+
+  const item1 = `${data.content.text}`;
+  const day = `${timeago.format(data.created_at)}`;
+  return [item, item1, day];
 };
 
 const tweetData = {
@@ -23,6 +30,6 @@ const tweetData = {
 
 const $tweet = createTweetElement(tweetData);
 
-// Test / driver code (temporary)
-console.log($tweet); // to see what it looks like
-$("#tweeter-profile").append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+$("#tweeter-profile").append($tweet[0]); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+$(".tweet-text").append($tweet[1]); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+$("#tweet-day").append($tweet[2]);
