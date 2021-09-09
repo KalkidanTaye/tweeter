@@ -5,6 +5,8 @@ $(document).ready(function () {
     $("#counter").text(140 - $(this).val().length);
     if ($(this).val().length > 140) {
       $("#counter").css("color", "red");
+    } else {
+      $("#counter").css("color", "black");
     }
   });
 });

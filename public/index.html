@@ -38,12 +38,13 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet-display.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -87,6 +88,27 @@
         </form>
       </section>
 
+      <section id="tweets-container">
+        <div id="tweeter-profile">
+          <!-- <img class="female-avatar" src="/images/female-avatar.png" /> -->
+          <label class="tweeter-name">Rhonda Jacobs</label>
+          <label class="tweeter-username">@MrsJacobs</label>
+        </div>
+        <div class="display-tweet">
+          <article class="tweet-text">hello World!</article>
+          <hr />
+        </div>
+
+        <div id="tweet-footer">
+          <label id="tweet-day">10 days ago</label>
+          <div class="tweet-icons">
+            <i class="fas fa-flag"></i>
+            <i class="fas fa-retweet"></i>
+            <i class="fas fa-heart"></i>
+          </div>
+        </div>
+      </section>
+
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -97,4 +119,5 @@
     </main>
   </body>
   <script type="text/javascript" src="/js/composer-char-counter.js"></script>
+  <script type="text/javascript" src="/scripts/client.js"></script>
 </html>
