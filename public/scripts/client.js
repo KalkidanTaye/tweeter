@@ -1,38 +1,8 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+$(document).ready(() => {
+  //------------- Create Tweet Function ----------------------
 
-const tweetData = [
-  {
-    user: {
-      name: "Newton",
-      avatars: "https://i.imgur.com/73hZDYK.png",
-      handle: "@SirIsaac",
-    },
-    content: {
-      text: "If I have seen further it is by standing on the shoulders of giants",
-    },
-    created_at: 1461116232227,
-  },
-  {
-    user: {
-      name: "Descartes",
-      avatars: "https://i.imgur.com/nlhLi3I.png",
-      handle: "@rd",
-    },
-    content: {
-      text: "Je pense , donc je suis",
-    },
-    created_at: 1461113959088,
-  },
-];
-
-//------------- Create Tweet Function ----------------------
-
-const createTweetElement = function (data) {
-  const item = ` <div id="inner-tweets-container">
+  const createTweetElement = function (data) {
+    const item = ` <div id="inner-tweets-container">
                     <div id="tweeter-profile">
                         <img class= "avatar" src = "${data.user.avatars}">
                         <label class="tweeter-name">${data.user.name}</label>
@@ -58,27 +28,21 @@ const createTweetElement = function (data) {
                     </div>
         
                 </div>`;
-  return [item];
-};
+    return [item];
+  };
 
-//------------- Render Tweet Function ----------------------
+  //------------- Render Tweet Function ----------------------
 
-const renderTweets = function (tweets) {
-  // loops through tweets
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
-  let tweet = [];
-  for (const key in tweets) {
-    tweet = createTweetElement(tweets[key]);
+  const renderTweets = function (tweets) {
+    let tweet;
+    for (let i = tweets.length - 1; i >= 0; i--) {
+      tweet = createTweetElement(tweets[i]);
+      $("#tweets-container").append(tweet);
+    }
+  };
 
-    $("#tweets-container").append(tweet[0]);
-  }
-};
+  //----------------- submit tweet --------------------
 
-renderTweets(tweetData);
-
-$(document).ready(() => {
-  console.log("ready!");
   $("form").on("submit", (evt) => {
     evt.preventDefault();
     let str = $("form").serialize();
@@ -87,11 +51,27 @@ $(document).ready(() => {
       method: "POST",
       data: str,
     })
-      .then(function (response) {
-        console.log("response", response);
-      })
+      .then(function (response) {})
       .catch(function (err) {
         console.log(err);
       });
   });
+
+  //----------------- fetch tweet --------------------
+
+  const loadTweets = function () {
+    $.ajax({
+      url: "/tweets",
+      method: "GET",
+      dataType: "json",
+    })
+      .then(function (tweets) {
+        console.log("tweets -------", tweets);
+        renderTweets(tweets);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  };
+  loadTweets();
 });
