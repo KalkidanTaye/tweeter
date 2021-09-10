@@ -11,9 +11,9 @@ $(document).ready(() => {
                         }</label>
                     </div>
                     <div class="display-tweet">
-                        <article class="tweet-text">${
+                        <article class="tweet-text">${escape(
                           data.content.text
-                        }</article>
+                        )}</article>
                         <hr />
                     </div>
                     <div id="tweet-footer">
@@ -28,19 +28,35 @@ $(document).ready(() => {
                     </div>
         
                 </div>`;
-    return [item];
+    return item;
   };
 
   //------------- Render Tweet Function ----------------------
 
   const renderTweets = function (tweets) {
     let tweet;
-    for (let i = tweets.length - 1; i >= 0; i--) {
-      tweet = createTweetElement(tweets[i]);
-      $("#tweets-container").append(tweet);
+    for (const key in tweets) {
+      tweet = createTweetElement(tweets[key]);
+      console.log(tweet);
+      $("#tweets-container").prepend(tweet);
     }
   };
+  //----------------- fetch tweet --------------------
 
+  const loadTweets = function () {
+    $.ajax({
+      url: "/tweets",
+      method: "GET",
+      dataType: "json",
+    })
+      .then(function (tweets) {
+        renderTweets(tweets);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  };
+  loadTweets();
   //----------------- submit tweet --------------------
 
   $("form").on("submit", (event) => {
@@ -56,43 +72,33 @@ $(document).ready(() => {
         .catch(function (err) {
           console.log(err);
         });
+      $("#tweet-textarea").val("").focus();
+      $("#counter").val("140");
     }
+    loadTweets();
   });
 
-  //----------------- fetch tweet --------------------
+  //---------- form validation ---------------
 
-  const loadTweets = function () {
-    $.ajax({
-      url: "/tweets",
-      method: "GET",
-      dataType: "json",
-    })
-      .then(function (tweets) {
-        console.log("tweets -------", tweets);
-        renderTweets(tweets);
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
+  const formValidation = function () {
+    if ($("#counter").val() < 0) {
+      $(".error-display-counter").show("slow").delay(5000).hide("slow");
+      // alert("Tweet content cannot be over 140 characters.");
+      return false;
+    }
+
+    if (!$("#tweet-textarea").val()) {
+      $(".error-display-empty").show("slow").delay(5000).hide("slow");
+      // alert("Tweet content cannot be empty.");
+      return false;
+    }
+
+    return true;
   };
-  loadTweets();
+  //----escape function --- cross site scripting --------------
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 });
-
-//---------- form validation ---------------
-
-const formValidation = function () {
-  //   const tweetContentCount = $(".counter").val();
-  if ($("#counter").val() < 0) {
-    console.log("counter < 0");
-    alert("Tweet content cannot be over 140 characters.");
-    return false;
-  }
-
-  if (!$("#tweet-textarea").val()) {
-    console.log("tweet area empty");
-    alert("Tweet content cannot be empty.");
-    return false;
-  }
-  //   setErrorMessage("");
-  return true;
-};

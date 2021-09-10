@@ -82,6 +82,16 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <div class="error-display-counter">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p class="error-message">
+            Tweet content cannot be over 140 characters.
+          </p>
+        </div>
+        <div class="error-display-empty">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p class="error-message">Tweet content cannot be empty.</p>
+        </div>
         <form>
           <label class="new-tweet-text" for="tweet-text"
             >What are you humming about?</label
