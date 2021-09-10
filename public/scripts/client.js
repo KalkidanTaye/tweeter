@@ -76,3 +76,22 @@ const renderTweets = function (tweets) {
 };
 
 renderTweets(tweetData);
+
+$(document).ready(() => {
+  console.log("ready!");
+  $("form").on("submit", (evt) => {
+    evt.preventDefault();
+    let str = $("form").serialize();
+    $.ajax({
+      url: "/tweets",
+      method: "POST",
+      data: str,
+    })
+      .then(function (response) {
+        console.log("response", response);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  });
+});
