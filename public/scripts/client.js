@@ -43,18 +43,20 @@ $(document).ready(() => {
 
   //----------------- submit tweet --------------------
 
-  $("form").on("submit", (evt) => {
-    evt.preventDefault();
-    let str = $("form").serialize();
-    $.ajax({
-      url: "/tweets",
-      method: "POST",
-      data: str,
-    })
-      .then(function (response) {})
-      .catch(function (err) {
-        console.log(err);
-      });
+  $("form").on("submit", (event) => {
+    event.preventDefault();
+    if (formValidation()) {
+      let str = $("form").serialize();
+      $.ajax({
+        url: "/tweets",
+        method: "POST",
+        data: str,
+      })
+        .then(function (response) {})
+        .catch(function (err) {
+          console.log(err);
+        });
+    }
   });
 
   //----------------- fetch tweet --------------------
@@ -75,3 +77,22 @@ $(document).ready(() => {
   };
   loadTweets();
 });
+
+//---------- form validation ---------------
+
+const formValidation = function () {
+  //   const tweetContentCount = $(".counter").val();
+  if ($("#counter").val() < 0) {
+    console.log("counter < 0");
+    alert("Tweet content cannot be over 140 characters.");
+    return false;
+  }
+
+  if (!$("#tweet-textarea").val()) {
+    console.log("tweet area empty");
+    alert("Tweet content cannot be empty.");
+    return false;
+  }
+  //   setErrorMessage("");
+  return true;
+};
