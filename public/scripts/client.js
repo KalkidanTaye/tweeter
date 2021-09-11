@@ -101,13 +101,15 @@ $(document).ready(() => {
     return div.innerHTML;
   };
 
-  //------ form slide up or down --------
-  const $arrow = $(".fa-angle-double-down");
-  $arrow.on("click", function () {
-    const toggleText = document.getElementById("#tweet-form");
-    if (toggleText.style.display !== "none") {
-      toggleText.style.display = "none";
+  //------ form slide up or down -------- not working!
+  const $arrow = document.getElementsByClassName(".fa-angle-double-down");
+  $(".fa-angle-double-down").click = function () {
+    const $toggleText = document.getElementsByClassName(".new-tweet");
+    if ($toggleText.style.display !== "none") {
+      console.log("None");
+      $toggleText.style.display = "none";
     }
-    toggleText.style.display = "flex";
-  });
+    $toggleText.style.display = "flex";
+    console.log("Display Yes");
+  };
 });
