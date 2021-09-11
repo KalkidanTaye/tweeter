@@ -17,14 +17,16 @@
   margin: 1.5em 1.5em;
 }
 .avatar {
-  height: auto;
+  height: 50%;
   width: 10%;
-  margin-left: 1.1em;
-  margin-right: 0.5em;
+  margin: 0.5em 0.5em 0 1.1em;
+  /* margin-right: 0.5em; */
 }
 
 .tweet-text {
-  margin-left: 1.1em;
+  /* margin-left: 1.1em; */
+  margin: 1.1em 0 0 1.1em;
+  resize: vertical;
 }
 
 hr {
