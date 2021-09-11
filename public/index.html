@@ -69,45 +69,46 @@
         <i class="fas fa-angle-double-down"></i>
       </div>
     </nav>
-
-    <header>
-      <div class="avatar">
-        <img src="/images/profile-hex.png" />
-        <h2>Amy <span>Mansell</span></h2>
-      </div>
-      <br />
-      <div class="name">
+    <div class="main-outer-container">
+      <header>
+        <!-- <div class="avatar"> -->
+        <img class="avatar-header" src="/images/profile-hex.png" />
         <!-- <h2>Amy <span>Mansell</span></h2> -->
-      </div>
-    </header>
+        <!-- </div> -->
+        <!-- <br /> -->
+        <!-- <div class="name"> -->
+        <h2 class="name">Amy <span>Mansell</span></h2>
+        <!-- </div> -->
+      </header>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <div class="error-display-counter">
-          <i class="fas fa-exclamation-triangle"></i>
-          <p class="error-message">
-            Tweet content cannot be over 140 characters.
-          </p>
-        </div>
-        <div class="error-display-empty">
-          <i class="fas fa-exclamation-triangle"></i>
-          <p class="error-message">Tweet content cannot be empty.</p>
-        </div>
-        <form id="tweet-form">
-          <label class="new-tweet-text" for="tweet-text"
-            >What are you humming about?</label
-          >
-          <textarea name="text" id="tweet-textarea"></textarea>
-          <div class="tweetButton-counter">
-            <button class="tweet-button" type="submit">Tweet</button>
-            <output name="counter" id="counter" for="tweet-text">140</output>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <div class="error-display-counter">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p class="error-message">
+              Tweet content cannot be over 140 characters.
+            </p>
           </div>
-        </form>
-      </section>
+          <div class="error-display-empty">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p class="error-message">Tweet content cannot be empty.</p>
+          </div>
+          <form id="tweet-form">
+            <label class="new-tweet-text" for="tweet-text"
+              >What are you humming about?</label
+            >
+            <textarea name="text" id="tweet-textarea"></textarea>
+            <div class="tweetButton-counter">
+              <button class="tweet-button" type="submit">Tweet</button>
+              <output name="counter" id="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
 
-      <section id="tweets-container"></section>
-    </main>
+        <section id="tweets-container"></section>
+      </main>
+    </div>
   </body>
   <script type="text/javascript" src="/js/composer-char-counter.js"></script>
   <script type="text/javascript" src="/scripts/client.js"></script>

@@ -5,6 +5,7 @@
   color: red;
   border: 3px solid #ff0000;
   width: 25em;
+  height: 3.8em;
   padding-top: 0.5em;
   margin-top: 0.5em;
 }
@@ -16,6 +17,7 @@
   color: red;
   border: 3px solid #ff0000;
   width: 25em;
+  height: 3.8em;
   padding-top: 0.5em;
   margin-top: 0.5em;
 }
@@ -26,9 +28,7 @@
 form {
   display: flex;
   flex-direction: column;
-}
-.new-tweet-text {
-  padding-top: 1.5em;
+  margin-top: 100px;
 }
 
 .tweetButton-counter {
@@ -43,6 +43,9 @@ form {
   background-color: #f4f1ec;
   height: 50px;
   margin-top: 20px;
+}
+#tweet-textarea:focus {
+  outline: none;
 }
 .tweet-button {
   font-family: "Bungee";
