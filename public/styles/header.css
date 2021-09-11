@@ -3,8 +3,8 @@ header {
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  height: 400px;
-  width: 50%;
+  height: 55vh;
+  width: 50vw;
   background-color: #ed9909;
   background-image: url(../images/clean-gray-paper.png);
   margin-top: 100px;
