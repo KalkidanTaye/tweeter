@@ -37,7 +37,6 @@ $(document).ready(() => {
     let tweet;
     for (const key in tweets) {
       tweet = createTweetElement(tweets[key]);
-      console.log(tweet);
       $("#tweets-container").prepend(tweet);
     }
   };
@@ -83,13 +82,13 @@ $(document).ready(() => {
   const formValidation = function () {
     if ($("#counter").val() < 0) {
       $(".error-display-counter").show("slow").delay(5000).hide("slow");
-      // alert("Tweet content cannot be over 140 characters.");
+
       return false;
     }
 
     if (!$("#tweet-textarea").val()) {
       $(".error-display-empty").show("slow").delay(5000).hide("slow");
-      // alert("Tweet content cannot be empty.");
+
       return false;
     }
 
@@ -101,4 +100,14 @@ $(document).ready(() => {
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
+
+  //------ form slide up or down --------
+  const $arrow = $(".fa-angle-double-down");
+  $arrow.on("click", function () {
+    const toggleText = document.getElementById("#tweet-form");
+    if (toggleText.style.display !== "none") {
+      toggleText.style.display = "none";
+    }
+    toggleText.style.display = "flex";
+  });
 });

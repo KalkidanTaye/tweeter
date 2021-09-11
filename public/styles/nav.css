@@ -1,25 +1,38 @@
-nav {
+.nav-bar {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   height: 120px;
   width: 100%;
   background-color: #4056a1;
   color: #ffffff;
-  padding: 0 1.5em;
   z-index: 1;
   position: fixed;
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
+  top: 0;
+  padding: 0 1.5em;
 }
 
 .logo {
   font-family: "Bungee";
-  /* align-self: center; */
 }
-h4 {
-  align-self: center;
+
+.nav-new-tweet {
+  display: flex;
+  flex: 1;
 }
-/* .fas {
-  /* float: right; */
-/* } */
+
+.fa-angle-double-down {
+  animation: MoveUpDown 3s linear infinite;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: red;
+  padding-right: 4.5em;
+}
+@keyframes MoveUpDown {
+  0%,
+  100% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+}

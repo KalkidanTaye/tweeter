@@ -62,11 +62,12 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span class="logo">tweeter</span>
-      <!-- <div class=></div> -->
-      <h4>Write a new tweet</h4>
-      <i class="fas fa-angle-double-down"></i>
+    <nav class="nav-bar">
+      <h2 class="logo">tweeter</h2>
+      <div class="nav-new-tweet"></div>
+        <h4>Write a new tweet</h4>
+        <i class="fas fa-angle-double-down"></i>
+      </div>
     </nav>
 
     <header>
@@ -92,7 +93,7 @@
           <i class="fas fa-exclamation-triangle"></i>
           <p class="error-message">Tweet content cannot be empty.</p>
         </div>
-        <form>
+        <form id="tweet-form">
           <label class="new-tweet-text" for="tweet-text"
             >What are you humming about?</label
           >
