@@ -4,6 +4,7 @@ $(document).ready(() => {
 });
 
  //------------- Create Tweet Function ----------------------
+ 
 const createTweetElement = function (data) {
   const item = ` <div id="inner-tweets-container">
                   <div id="tweeter-profile">
@@ -73,7 +74,7 @@ $("form").on("submit", (event) => {
       method: "POST",
       data: str,
     })
-      .then(function (response) {
+      .then(function () {
         loadTweets();
       })
       .catch(function (err) {
@@ -110,14 +111,4 @@ $("form").on("submit", (event) => {
     return div.innerHTML;
   };
 
-//------ form slide up or down -------- not working!
-const $arrow = document.getElementsByClassName(".fa-angle-double-down");
-$(".fa-angle-double-down").click = function () {
-  const $toggleText = document.getElementsByClassName(".new-tweet");
-  if ($toggleText.style.display !== "none") {
-    console.log("None");
-    $toggleText.style.display = "none";
-  }
-  $toggleText.style.display = "flex";
-  console.log("Display Yes");
-};
+

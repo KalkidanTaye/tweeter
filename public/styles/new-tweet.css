@@ -43,6 +43,7 @@ form {
   background-color: #f4f1ec;
   height: 50px;
   margin-top: 20px;
+  resize: none;
 }
 #tweet-textarea:focus {
   outline: none;
