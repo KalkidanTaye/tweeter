@@ -35,10 +35,12 @@ $(document).ready(() => {
 
   const renderTweets = function (tweets) {
     let tweet;
+    $("#tweets-container").empty();
     for (const key in tweets) {
       tweet = createTweetElement(tweets[key]);
       $("#tweets-container").prepend(tweet);
     }
+    
   };
   //----------------- fetch tweet --------------------
 
@@ -67,14 +69,16 @@ $(document).ready(() => {
         method: "POST",
         data: str,
       })
-        .then(function (response) {})
+        .then(function (response) {
+          loadTweets();
+        })
         .catch(function (err) {
           console.log(err);
         });
       $("#tweet-textarea").val("").focus();
       $("#counter").val("140");
     }
-    loadTweets();
+    
   });
 
   //---------- form validation ---------------
